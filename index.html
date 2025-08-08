@@ -1,33 +1,63 @@
-.<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>فرم تماس با ارسال به ایمیل</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت من با انیمیشن</title>
+    <!-- استایل اصلی -->
     <style>
         body {
+            margin: 0;
             font-family: Tahoma, sans-serif;
             direction: rtl;
-            margin: 0;
-            padding: 0;
-            background-color: red;
         }
-        h1 {
+        header {
+            background: #4CAF50;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .hero {
             text-align: center;
-            color: #4CAF50;
-            margin-top: 20px;
+            background: #f0f0f0;
+            padding: 60px 20px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
         }
         form {
-            max-width: 400px;
-            background: red;
+            background: white;
             padding: 20px;
-            margin: 30px auto;
             border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         input, textarea, button {
             width: 100%;
@@ -38,72 +68,116 @@
             font-size: 14px;
         }
         button {
-            background-color: red;
-            color: yellow;
+            background-color: #4CAF50;
+            color: white;
             border: none;
             cursor: pointer;
-            font-size: 16px;
         }
         button:hover {
             background-color: #45a049;
         }
-        .success {
-            color: red;
+        footer {
+            background: #333;
+            color: white;
             text-align: center;
-            margin-top: 10px;
-        }
-        .error {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
+            padding: 15px;
+            margin-top: 20px;
         }
     </style>
+
+    <!-- لینک کتابخانه AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
 </head>
 <body>
 
-    <h1>تماس با من</h1>
+<header data-aos="fade-down">
+    <nav>
+        <a href="#home">خانه</a>
+        <a href="#about">درباره ما</a>
+        <a href="#services">خدمات</a>
+        <a href="#contact">تماس</a>
+    </nav>
+</header>
+
+<section id="home" class="hero" data-aos="fade-up">
+    <h1>به سایت من خوش آمدید</h1>
+    <p>یک سایت زیبا با HTML, CSS, JavaScript و انیمیشن‌های جذاب</p>
+</section>
+
+<section id="about" data-aos="fade-right">
+    <h2>درباره ما</h2>
+    <p>ما تیمی خلاق هستیم که وب‌سایت‌های حرفه‌ای و ریسپانسیو طراحی می‌کنیم.</p>
+</section>
+
+<section id="services" data-aos="fade-left">
+    <h2>خدمات ما</h2>
+    <div class="services">
+        <div class="card" data-aos="zoom-in">
+            <h3>طراحی سایت</h3>
+            <p>ساخت وب‌سایت‌های مدرن و واکنش‌گرا.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+            <h3>سئو</h3>
+            <p>بهینه‌سازی برای موتورهای جستجو و افزایش بازدید.</p>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="400">
+            <h3>پشتیبانی</h3>
+            <p>نگهداری و رفع اشکالات سایت.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact" data-aos="fade-up">
+    <h2>تماس با ما</h2>
     <form id="contactForm" action="https://formspree.io/f/mldloqnp" method="POST">
-        <label for="name">نام:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">ایمیل:</label>
-        <input type="email" id="email" name="_replyto" required>
-
-        <label for="message">پیام:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <button type="submit">ارسال</button>
+        <input type="text" name="name" placeholder="نام" required>
+        <input type="email" name="_replyto" placeholder="ایمیل" required>
+        <textarea name="message" rows="4" placeholder="پیام شما" required></textarea>
+        <button type="submit">ارسال پیام</button>
         <div id="formMessage"></div>
     </form>
+</section>
 
-    <script>
-        const form = document.getElementById("contactForm");
-        const formMessage = document.getElementById("formMessage");
+<footer data-aos="fade-up">
+    <p>© 2025 | طراحی شده با ❤️</p>
+</footer>
 
-        form.addEventListener("submit", async function (event) {
-            event.preventDefault();
+<!-- اسکریپت AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000, // مدت زمان انیمیشن
+        once: true // فقط یکبار اجرا شود
+    });
 
-            const formData = new FormData(form);
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (response.ok) {
-                    formMessage.textContent = "پیام با موفقیت ارسال شد! 🎉";
-                    formMessage.className = "success";
-                    form.reset();
-                } else {
-                    formMessage.textContent = "خطا در ارسال. دوباره امتحان کنید.";
-                    formMessage.className = "error";
-                }
-            } catch (error) {
-                formMessage.textContent = "مشکل در اتصال به سرور.";
-                formMessage.className = "error";
+    // اسکریپت فرم
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        try {
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                formMessage.textContent = "پیام با موفقیت ارسال شد! 🎉";
+                formMessage.style.color = "green";
+                form.reset();
+            } else {
+                formMessage.textContent = "خطا در ارسال. دوباره امتحان کنید.";
+                formMessage.style.color = "red";
             }
-        });
-    </script>
+        } catch (error) {
+            formMessage.textContent = "مشکل در اتصال به سرور.";
+            formMessage.style.color = "red";
+        }
+    });
+</script>
 
 </body>
 </html>
