@@ -61,5 +61,6 @@
 </body>
 </html>
 .logo img {
-    height: 15px; 
-    width: 15px; }
+    height: 20px; /* ارتفاع لوگو */
+    width: auto; /* عرض به صورت خودکار */
+}
