@@ -1,74 +1,172 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت من</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>سایت من — نمونه کامل</title>
+
+  <style>
+    /* ریست اولیه */
+    * { box-sizing: border-box; margin:0; padding:0; }
+    html,body { height:100%; }
+    body {
+      font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+      direction: rtl;
+      color:#222;
+      background:#f5f6f8;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* هدر */
+    header {
+      background:#0f8a5f;
+      color:white;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+    .container { max-width:1100px; margin:0 auto; padding:0 16px; }
+    .header-inner {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      height:70px;
+    }
+    .logo img { height:44px; display:block; }
+    nav ul { list-style:none; display:flex; gap:18px; align-items:center; }
+    nav a { color:white; text-decoration:none; font-weight:600; }
+    nav a:hover { opacity:0.9; text-decoration:underline; }
+
+    /* هرو (Hero) با بک‌گراند و Overlay */
+    .hero {
+      position:relative;
+      min-height:60vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:white;
+      background-image: url('https://images.unsplash.com/photo-1503264116251-35a269479413?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=1f9c1b7f6b4b3de7f2f2d6a8c4e3d9e4');
+      background-size:cover;
+      background-position:center;
+    }
+    .hero::after {
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero .hero-inner {
+      position:relative;
+      z-index:2;
+      padding:40px 16px;
+      max-width:900px;
+    }
+    .hero h1 { font-size:38px; margin-bottom:12px; }
+    .hero p { font-size:18px; margin-bottom:18px; opacity:0.95; }
+
+    .btn {
+      display:inline-block;
+      background:#ff8a00;
+      color:white;
+      padding:10px 18px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      transition:transform .15s ease, box-shadow .15s;
+    }
+    .btn:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(0,0,0,0.15); }
+
+    /* سه کارت خدمات */
+    .section { padding:56px 16px; }
+    .cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:18px; max-width:1100px; margin:0 auto; }
+    .card {
+      background:white; border-radius:10px; padding:22px;
+      box-shadow: 0 6px 18px rgba(30,40,60,0.06);
+      text-align:center;
+    }
+    .card h3 { margin-bottom:12px; color:#0f8a5f; }
+    .card p { color:#444; line-height:1.5; }
+
+    /* گالری ساده */
+    .gallery { display:grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap:12px; max-width:1100px; margin:0 auto; }
+    .gallery img { width:100%; height:140px; object-fit:cover; border-radius:8px; display:block; }
+
+    /* فرم تماس */
+    .contact-wrap { max-width:700px; margin:0 auto; }
+    form.contact-form {
+      background:white; padding:20px; border-radius:10px;
+      box-shadow:0 8px 20px rgba(20,30,40,0.06);
+      display:grid; gap:12px;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width:100%; padding:10px 12px; border-radius:8px; border:1px solid #ddd;
+      font-size:15px; outline:none;
+    }
+    textarea { min-height:120px; resize:vertical; }
+    .form-success { color:green; font-weight:600; margin-top:8px; }
+    .form-error { color:#c0392b; font-weight:600; margin-top:8px; }
+
+    /* فوتر */
+    footer { background:#111; color:#ddd; padding:18px 0; text-align:center; margin-top:40px; }
+
+    /* دکمه برگشت به بالا */
+    #backToTop {
+      position:fixed; left:18px; bottom:18px; z-index:1100;
+      display:none; background:#0f8a5f; color:white; border:none;
+      padding:10px 12px; border-radius:8px; cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    /* ریسپانسیو */
+    @media (max-width:720px) {
+      .header-inner { height:64px; }
+      .hero h1 { font-size:28px; }
+      .hero p { font-size:16px; }
+    }
+  </style>
 </head>
 <body>
-<header>
-    <div class="logo">
-    <img src="https://cdni.pornpics.com/1280/7/742/57054906/57054906_103_929a.jpg" alt="لوگوی سایت">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#">خانه</a></li>
-            <li><a href="#">درباره ما</a></li>
-            <li><a href="#">خدمات</a></li>
-            <li><a href="#">تماس با ما</a></li>
-        </ul>
-    </nav>
-</header>
-    <!-- هدر سایت -->
-    <header>
-        </h1>
+
+  <!-- هدر -->
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <!-- جای لوگو: این را با مسیر لوگوی خودت جایگزین کن -->
+          <a href="#"><img src="https://via.placeholder.com/150x50?text=Logo" alt="لوگو سایت"></a>
+        </div>
+
         <nav>
-            <a href="#home">خانه</a>
-            <a href="#about">درباره</a>
-            <a href="#services">خدمات</a>
-            <a href="#contact">تماس</a>
+          <ul>
+            <li><a href="#home">خانه</a></li>
+            <li><a href="#services">خدمات</a></li>
+            <li><a href="#gallery">گالری</a></li>
+            <li><a href="#contact">تماس</a></li>
+          </ul>
         </nav>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- بخش خانه -->
-    <section id="home">
-        <h2>به سایت من خوش آمدید</h2>
-        <p>این اولین سایت من است که از صفر دارم می‌سازم.</p>
-    </section>
+  <!-- هرو -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <h1>سلام! من اینجا سایت خودمو ساختم</h1>
+      <p>یادگیری از صفر تا صد — این نمونه‌ای از ترکیب HTML, CSS و JavaScript است. همین الآن می‌تونی این صفحه را ویرایش کنی.</p>
+      <a class="btn" href="#contact">ارسال پیام</a>
+    </div>
+  </section>
 
-    <!-- بخش درباره -->
-    <section id="about">
-        <h2>درباره ما</h2>
-        <p>اینجا متن معرفی کسب‌وکار یا شخص شما می‌آید.</p>
-    </section>
-
-    <!-- بخش خدمات -->
-    <section id="services">
-        <h2>خدمات ما</h2>
-        <ul>
-            <li>طراحی سایت</li>
-            <li>برنامه‌نویسی</li>
-            <li>سئو</li>
-        </ul>
-    </section>
-
-    <!-- بخش تماس -->
-    <section id="contact">
-        <h2>تماس با ما</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="نام شما" required>
-            <input type="email" name="email" placeholder="ایمیل شما" required>
-            <textarea name="message" placeholder="پیام شما" required></textarea>
-            <button type="submit">ارسال</button>
-        </form>
-    </section>
-
-    <!-- فوتر -->
-    <footer>
-        <p>تمامی حقوق محفوظ است © 2025</p>
-    </footer>
-
-    <script src="js/app.js"></script>
-</body>
-</html>
+  <!-- خدمات -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 style="text-align:center; margin-bottom:18px;">خدمات ما</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>طراحی سایت</h3>
+          <p>ساخت سایت‌های زیبا، واکنش‌گرا و سریع.</p>
+        </div>
+        <div class="card">
+          <h3>سئو و محتوا</h3>
+          <p>بهینه‌سازی برای موتورهای جستجو و تولید محتوای
