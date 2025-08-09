@@ -62,3 +62,7 @@
     <script src="js/app.js"></script>
 </body>
 </html>
+.logo img {
+    height: 50px; /* ارتفاع لوگو */
+    width: auto; /* عرض به صورت خودکار */
+}
