@@ -7,6 +7,46 @@
     <!-- استایل اصلی -->
     <style>
         body {
+            /* استایل کلی هدر */
+header {
+    background-color: #333; /* رنگ پس‌زمینه تیره */
+    color: white; /* رنگ متن سفید */
+    display: flex; /* قرار دادن لوگو و منو کنار هم */
+    justify-content: space-between; /* فاصله بین لوگو و منو */
+    align-items: center; /* وسط‌چین کردن عمودی */
+    padding: 10px 20px; /* فاصله داخلی */
+}
+
+/* استایل لوگو */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* استایل منو */
+nav ul {
+    list-style: none; /* حذف نقطه‌های لیست */
+    margin: 0;
+    padding: 0;
+    display: flex; /* آیتم‌ها کنار هم */
+}
+
+/* آیتم‌های منو */
+nav ul li {
+    margin-left: 20px; /* فاصله بین آیتم‌ها */
+}
+
+/* لینک‌های منو */
+nav ul li a {
+    color: white; /* رنگ متن */
+    text-decoration: none; /* حذف خط زیر متن */
+    font-size: 18px;
+}
+
+/* وقتی موس روی لینک بره */
+nav ul li a:hover {
+    color: yellow; /* تغییر رنگ */
+}
             margin: 0;
             font-family: Tahoma, sans-serif;
             direction: rtl;
