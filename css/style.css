@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+/* بخش اصلی سایت */
+.hero {
+    background-image: url("../images/background.jpg"); /* مسیر عکس پس‌زمینه */
+    background-size: cover; /* پر کردن کل فضا */
+    background-position: center; /* وسط‌چین کردن تصویر */
+    color: white; /* متن سفید */
+    text-align: center; /* وسط‌چین متن */
+    padding: 100px 20px; /* فاصله داخلی بالا و پایین */
+}
+
+/* عنوان بزرگ */
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+/* متن توضیح */
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* دکمه */
+.btn {
+    display: inline-block;
+    background-color: #ff9800;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* وقتی موس روی دکمه بره */
+.btn:hover {
+    background-color: #e68900;
+}<!DOCTYPE html>
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
