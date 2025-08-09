@@ -1,99 +1,89 @@
-/* بخش اصلی سایت */
-.hero {
-    background-image: url("https://cdni.pornpics.com/1280/7/742/57054906/57054906_103_929a.jpg"); /* مسیر عکس پس‌زمینه */
-    background-size: cover; /* پر کردن کل فضا */
-    background-position: center; /* وسط‌چین کردن تصویر */
-    color: white; /* متن سفید */
-    text-align: center; /* وسط‌چین متن */
-    padding: 100px 20px; /* فاصله داخلی بالا و پایین */
+/* ریست اولیه برای همه تگ‌ها */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* عنوان بزرگ */
+/* استایل کلی صفحه */
+body {
+    font-family: 'Tahoma', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* هدر */
+header {
+    background: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+header nav ul li a:hover {
+    color: yellow;
+}
+
+/* بخش اصلی */
+.hero {
+    background: url("../images/background.jpg") no-repeat center center/cover;
+    text-align: center;
+    color: white;
+    padding: 100px 20px;
+}
+
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
 }
 
-/* متن توضیح */
 .hero p {
     font-size: 20px;
     margin-bottom: 30px;
 }
 
-/* دکمه */
+/* دکمه‌ها */
 .btn {
     display: inline-block;
-    background-color: #ff9800;
+    background: #ff9800;
     color: white;
     padding: 10px 20px;
-    text-decoration: none;
-    font-size: 18px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-/* وقتی موس روی دکمه بره */
 .btn:hover {
-    background-color: #e68900;
-}<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایت من</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    background: #e68900;
+}
 
-    <!-- هدر سایت -->
-    <header>
-        </h1>
-        <nav>
-            <a href="#home">خانه</a>
-            <a href="#about">درباره</a>
-            <a href="#services">خدمات</a>
-            <a href="#contact">تماس</a>
-        </nav>
-    </header>
-
-    <!-- بخش خانه -->
-    <section id="home">
-        <h2>به سایت من خوش آمدید</h2>
-        <p>این اولین سایت من است که از صفر دارم می‌سازم.</p>
-    </section>
-
-    <!-- بخش درباره -->
-    <section id="about">
-        <h2>درباره ما</h2>
-        <p>اینجا متن معرفی کسب‌وکار یا شخص شما می‌آید.</p>
-    </section>
-
-    <!-- بخش خدمات -->
-    <section id="services">
-        <h2>خدمات ما</h2>
-        <ul>
-            <li>طراحی سایت</li>
-            <li>برنامه‌نویسی</li>
-            <li>سئو</li>
-        </ul>
-    </section>
-
-    <!-- بخش تماس -->
-    <section id="contact">
-        <h2>تماس با ما</h2>
-        <form id="contactForm">
-            <input type="text" name="name" placeholder="نام شما" required>
-            <input type="email" name="email" placeholder="ایمیل شما" required>
-            <textarea name="message" placeholder="پیام شما" required></textarea>
-            <button type="submit">ارسال</button>
-        </form>
-    </section>
-
-    <!-- فوتر -->
-    <footer>
-        <p>تمامی حقوق محفوظ است © 2025</p>
-    </footer>
-
-    <script src="js/app.js"></script>
-</body>
-</html>
+/* فوتر */
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
